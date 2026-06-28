@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /* Swap this for the real address. Used by the "email" action. */
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "siddhant.m.vishnu@gmail.com";
 
 const principles = [
   {
@@ -91,7 +91,7 @@ const systems = [
 ];
 
 const builds = [
-  { type: "Adaptive browser interfaces", title: "Mirage", kind: "reshape", res: "Working demos, 400 waitlist, 16VC Fellowship.", href: "https://x.com/trymirageapp" },
+  { type: "Adaptive browser interfaces", title: "Mirage", kind: "reshape", res: "Working demos, 400 waitlist, 16VC Fellowship.", href: "https://trymirage.app" },
   { type: "Regulatory documentation", title: "RegDoc", kind: "doc", res: "Compliance-ready FDA / EU-MDR docs in minutes.", href: null },
   { type: "TB outbreak prediction", title: "AI NETRA", kind: "geo", res: "Demoed at the India AI Impact Summit 2026.", href: "https://www.linkedin.com/posts/froncortai_aiabrnetra-precisionpublichealth-tb-activity-7429159194530017280-nK0J" },
   { type: "Enterprise knowledge RAG", title: "MercuryAI", kind: "graph", res: "1st place, IIT Bombay TechFest AI Quest.", href: "https://www.youtube.com/watch?v=l1pXpls1Vro" },
@@ -104,7 +104,7 @@ const builds = [
 const notes = [
   { label: "X Article", title: "The next UI is intent", body: "Static software starts to crack once agents understand intent and context.", img: "/notes/article-1.jpeg", href: "https://x.com/Siddhant_Vishnu/status/2060035404158648541" },
   { label: "X Article", title: "Distribution is product", body: "Demos, writing, and launch artifacts are not afterthoughts. They are the work.", img: "/notes/article-2.jpeg", href: "https://x.com/Siddhant_Vishnu/status/2062450564538241054" },
-  { label: "Build note", title: "Notes from Mirage", body: "What I am learning while turning the web from fixed pages into personal workflows.", img: "/notes/mirage-board.jpeg", href: "https://x.com/trymirageapp" },
+  { label: "Live", title: "Building in public", body: "Threads, demos, and field notes as I build Mirage, in real time.", img: "/notes/mirage-board.jpeg", href: "https://x.com/Siddhant_Vishnu" },
 ];
 
 const commands = [
@@ -636,7 +636,7 @@ export default function Home() {
             <span>Product engineer</span>
             <span className="dot">·</span>
             <span>Systems thinker</span>
-            <span className="live"><i />open to build</span>
+            <span className="live"><i />currently building</span>
           </p>
 
           <h1>
@@ -665,10 +665,10 @@ export default function Home() {
           </div>
 
           <ul className="hero-stats" data-enter style={{ "--d": "480ms" }}>
-            <li><b>16VC</b> Fellow</li>
-            <li><b>600K</b> views</li>
             <li><b>9</b> eng led</li>
+            <li><b>16VC</b> Fellow</li>
             <li><b>YC</b> SS India</li>
+            <li><b>600K</b> views</li>
           </ul>
         </div>
 
@@ -775,8 +775,8 @@ export default function Home() {
       <section className="panel wrap finale" id="contact">
         <div data-reveal>
           <p className="eyebrow">Open the system</p>
-          <h2>Let&apos;s build<br />something inevitable.</h2>
-          <p className="lead">Founder fellowships, collaborators, or anyone reshaping how software should work. The door is open.</p>
+          <h2>Let&apos;s build what<br />should exist.</h2>
+          <p className="lead">If you&apos;re building something that shouldn&apos;t have to wait, get in touch. Founder fellowships, collaborators, and the curious especially welcome.</p>
           <div className="finale-cta">
             <a className="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>
               Get in touch <span className="arr">↗</span>
