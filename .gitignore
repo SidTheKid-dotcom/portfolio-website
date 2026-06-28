@@ -1,0 +1,12 @@
+.next
+node_modules
+out
+*.log
+
+# Local tooling / editor config
+.claude
+.vercel
+.DS_Store
+
+# Private working context — personal data + local paths. Never commit to a public repo.
+context.md

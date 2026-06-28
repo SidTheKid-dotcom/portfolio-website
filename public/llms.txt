@@ -1,0 +1,31 @@
+# Siddhant Vishnu
+
+> Founder, product engineer, and systems thinker (age 21). I enter unfamiliar systems, find the leverage, and build what should have existed. Currently co-founding Mirage (adaptive browser interfaces for the AI-native web) while serving as Lead Engineer and Product Manager at a healthcare-AI startup, and studying Computer Engineering.
+
+## About
+
+- Pattern: enters unfamiliar domains, learns from first principles, and ships useful systems before the opportunity is obvious to most people.
+- Operating principles: learn by entering; talk to the users; creative thinking over code; distribution is the product.
+- AI-native builder: designs around agents and orchestration rather than headcount.
+- Recognition: accepted into the 16VC Summer Founder Fellowship; selected for YC Startup School India (top ~2000 nationally, April 2026); 1st place at the IIT Bombay TechFest AI Quest hackathon; a short-form post that reached 600K views.
+
+## Work
+
+- Froncort.AI (healthcare AI, current): intern to Lead Engineer to Product Manager in ~12 months; leads 3 product teams and 9 engineers across live, enterprise healthcare-AI products.
+  - RegDoc: FDA / EU-MDR-aligned domain agents that cut regulatory documentation from weeks to minutes.
+  - AI NETRA: agentic + geospatial inference for TB outbreak prediction and supply allocation; built with FIND, backed by Google.org; demoed at the India AI Impact Summit 2026; cut TB screening effort by ~55%.
+- Mirage (co-founder): browser interfaces that reshape any website around the person using it, with agents at the core. Working demos, 400-person waitlist, MVP in progress.
+- Other builds: MercuryAI (enterprise knowledge RAG), Urban Eye AI (real-time city event detection on edge devices), Oasis (campus social network, 1,200+ organic users), Steal or Share (multiplayer game-theory game), sid.breaks.prod (distribution experiment, 0 to 1,000 followers in 6 weeks).
+
+## Links
+
+- CV: /Siddhant_Vishnu_CV.pdf
+- X / Twitter: https://x.com/Siddhant_Vishnu
+- LinkedIn: https://www.linkedin.com/in/siddhant-vishnu-832296280/
+- GitHub: https://github.com/SidTheKid-dotcom
+- Instagram (distribution experiment): https://www.instagram.com/sid.breaks.prod/
+- Mirage: https://x.com/trymirageapp
+
+## Contact
+
+For founder fellowships, collaborations, or anyone reshaping how software should work, reach out via the links above.
