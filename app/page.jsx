@@ -423,23 +423,39 @@ function BuildVisual({ kind }) {
           </g>
         </svg>
       );
-    case "promise": // VACHAN — a builder's written promise, found on its exact page in a government PDF
+    case "promise": // VACHAN — the builder's written promise: taped minutes, highlighter, arrow to the number, clearance stamp
       return (
         <svg className="bvis-svg bv-vachan" viewBox="0 0 200 100" aria-hidden="true">
-          {/* the minutes PDF, one line highlighted on its page */}
-          <rect className="bv-page" x="22" y="12" width="52" height="68" rx="3" />
-          {[24, 32, 40, 56, 64].map((y) => <line key={y} className="bv-soft" x1="29" y1={y} x2={y === 64 ? 56 : 67} y2={y} />)}
-          <rect className="bv-hl" x="27" y="45" width="42" height="6" rx="1.5" />
-          <line className="bv-hl-line" x1="29" y1="48" x2="67" y2="48" />
-          <text className="bv-tag" x="48" y="92">1,000+ PDFs</text>
-          {/* the quoted line becomes a checked promise card */}
-          <line className="bv-flowline" x1="78" y1="48" x2="118" y2="48" />
-          <circle className="bv-flow" r="2.6" style={{ offsetPath: "path('M78 48 L118 48')" }} />
-          <rect className="bv-stroke" x="122" y="22" width="60" height="52" rx="4" />
-          <text className="bv-kg" x="152" y="40">1,056 kg/day</text>
-          <line className="bv-soft" x1="130" y1="49" x2="174" y2="49" />
-          <path className="bv-check" pathLength="1" d="M139 60 l6 6 l13 -14" />
-          <text className="bv-tag accent" x="152" y="92">735 t/day</text>
+          <rect className="vc-kraft" x="0" y="0" width="200" height="100" />
+          {/* the SEAC minutes excerpt, taped to the board */}
+          <g transform="rotate(-2 56 50)">
+            <rect className="vc-paper" x="12" y="15" width="88" height="74" rx="1.5" />
+            <rect className="vc-tape" x="17" y="10" width="22" height="8" transform="rotate(-8 28 14)" />
+            <rect className="vc-tape" x="73" y="10" width="22" height="8" transform="rotate(7 84 14)" />
+            <text className="vc-type dim" x="19" y="28">SEAC minutes · page 3</text>
+            <text className="vc-type bold" x="19" y="39">Operation Phase</text>
+            <line className="vc-uline" x1="19" y1="40.6" x2="62" y2="40.6" />
+            <rect className="vc-hl" x="17.5" y="45" width="78" height="8" rx="1" />
+            <text className="vc-type bold" x="19" y="51">Wet waste: 1056 kg/day</text>
+            <line className="vc-rule" x1="19" y1="62" x2="92" y2="62" />
+            <line className="vc-rule" x1="19" y1="70" x2="84" y2="70" />
+            <line className="vc-rule" x1="19" y1="78" x2="70" y2="78" />
+          </g>
+          {/* hand-drawn arrow from the quoted line to the promise */}
+          <path className="vc-arrow" pathLength="1" d="M97 47 C106 33 116 28 126 31" />
+          <path className="vc-arrow head" pathLength="1" d="M121.5 27.6 L126.4 31.2 L121.2 34" />
+          <g className="vc-big">
+            <rect className="vc-hl2" x="117" y="37" width="72" height="12" rx="1.5" />
+            <text className="vc-num" x="153" y="48">1,056 kg</text>
+            <text className="vc-sub" x="153" y="58">of wet waste a day</text>
+          </g>
+          {/* recommended-for-clearance stamp */}
+          <g transform="rotate(-12 160 80)">
+            <g className="vc-stamp">
+              <rect className="vc-stamp-box" x="136" y="72" width="48" height="16" rx="3" />
+              <text className="vc-stamp-text" x="160" y="82.2">RECOMMENDED</text>
+            </g>
+          </g>
         </svg>
       );
     case "graph": { // MercuryAI — one brain for your company, wired to every source

@@ -688,15 +688,36 @@ p { margin: 0; color: var(--muted); }
 .bv-regdoc .bv-flow { fill: var(--blue); animation: bvFlow 2.4s linear infinite; }
 .bv-regdoc .bv-tag { fill: var(--muted); font-family: var(--font-mono), monospace; font-size: 8px; letter-spacing: 0.04em; text-anchor: middle; }
 .bv-regdoc .bv-tag.accent { fill: var(--teal); }
-.bv-vachan .bv-page { fill: rgba(255, 255, 255, 0.92); stroke: rgba(31, 95, 224, 0.45); stroke-width: 1.2; }
-.bv-vachan .bv-hl { fill: rgba(12, 122, 112, 0.18); animation: bvHighlight 3.6s ease-in-out infinite; }
-.bv-vachan .bv-hl-line { stroke: var(--teal); stroke-width: 1.6; stroke-linecap: round; }
-.bv-vachan .bv-flowline { stroke: rgba(12, 122, 112, 0.35); stroke-width: 1.2; stroke-dasharray: 3 4; }
-.bv-vachan .bv-flow { fill: var(--teal); animation: bvFlow 2.4s linear infinite; }
-.bv-vachan .bv-kg { fill: var(--blue); font-family: var(--font-mono), monospace; font-size: 8px; font-weight: 700; text-anchor: middle; }
-.bv-vachan .bv-tag { fill: var(--muted); font-family: var(--font-mono), monospace; font-size: 8px; letter-spacing: 0.04em; text-anchor: middle; }
-.bv-vachan .bv-tag.accent { fill: var(--teal); }
-@keyframes bvHighlight { 0%, 100% { opacity: 0.35; } 40%, 60% { opacity: 1; } }
+/* VACHAN keeps its own look: kraft board, taped minutes, green highlighter, serif number, purple stamp */
+.bvis.bvis-promise { background: #dcc6a0; background-image: none; }
+.bv-vachan .vc-kraft { fill: #dcc6a0; }
+.bv-vachan .vc-paper { fill: #f5f0e3; stroke: rgba(60, 45, 20, 0.12); stroke-width: 0.6; }
+.bv-vachan .vc-tape { fill: rgba(150, 205, 125, 0.62); }
+.bv-vachan .vc-type { font-family: var(--font-mono), monospace; font-size: 5.2px; fill: #3b3a36; }
+.bv-vachan .vc-type.dim { fill: #7a766c; }
+.bv-vachan .vc-type.bold { font-weight: 700; fill: #1b1b1b; }
+.bv-vachan .vc-uline { stroke: #1b1b1b; stroke-width: 0.6; }
+.bv-vachan .vc-rule { stroke: rgba(60, 58, 54, 0.22); stroke-width: 1.6; stroke-linecap: round; }
+.bv-vachan .vc-hl { fill: #b8e2a0; transform-box: fill-box; transform-origin: left center; animation: vcSweep 6s ease-in-out infinite; }
+.bv-vachan .vc-arrow { fill: none; stroke: #1e5b3a; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: vcArrow 6s ease-in-out infinite; }
+.bv-vachan .vc-arrow.head { animation-name: vcArrowHead; }
+.bv-vachan .vc-big { animation: vcBig 6s ease-in-out infinite; }
+.bv-vachan .vc-hl2 { fill: #c9ebb3; transform-box: fill-box; transform-origin: left center; animation: vcSweep2 6s ease-in-out infinite; }
+.bv-vachan .vc-num { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; fill: #161616; text-anchor: middle; }
+.bv-vachan .vc-sub { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 6.4px; fill: #161616; text-anchor: middle; }
+.bv-vachan .vc-stamp { transform-box: fill-box; transform-origin: center; animation: vcStamp 6s ease-out infinite; }
+.bv-vachan .vc-stamp-box { fill: rgba(123, 94, 167, 0.07); stroke: #7b5ea7; stroke-width: 1.1; }
+.bv-vachan .vc-stamp-text { font-family: var(--font-mono), monospace; font-size: 5.2px; font-weight: 700; letter-spacing: 0.4px; fill: #7b5ea7; text-anchor: middle; }
+@keyframes vcSweep { 0%, 8% { transform: scaleX(0); } 22%, 92% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes vcArrow { 0%, 24% { stroke-dashoffset: 1; } 40%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes vcArrowHead { 0%, 38% { stroke-dashoffset: 1; } 44%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes vcBig { 0%, 36% { opacity: 0; transform: translateY(3px); } 48%, 92% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(0); } }
+@keyframes vcSweep2 { 0%, 46% { transform: scaleX(0); } 58%, 92% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes vcStamp { 0%, 60% { opacity: 0; transform: scale(1.6); } 66% { opacity: 1; transform: scale(0.94); } 70%, 92% { opacity: 0.92; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .bv-vachan .vc-hl, .bv-vachan .vc-hl2, .bv-vachan .vc-big, .bv-vachan .vc-stamp { animation: none !important; opacity: 1; transform: none; }
+  .bv-vachan .vc-arrow { animation: none !important; stroke-dashoffset: 0; }
+}
 @keyframes bvSrc { 0%, 100% { transform: translateY(0); opacity: 0.85; } 50% { transform: translateY(-2px); opacity: 1; } }
 @keyframes bvFlow { 0% { offset-distance: 0%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 
