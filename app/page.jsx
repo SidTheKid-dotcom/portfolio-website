@@ -21,10 +21,10 @@ const principles = [
     foot: "Validated learning beats a polished pitch",
   },
   {
-    title: "Creative thinking > code",
+    title: "Direction > code",
     icon: "spark",
     tone: "violet",
-    body: "When execution is cheap, judgment is the scarce resource. The hard part is seeing what should exist; code just makes it real.",
+    body: "In the AI era, agents write code fast. Deciding what to build, and for whom, is the bottleneck. I set the direction first, before building.",
     foot: "The idea has to be right before the build matters",
   },
   {
@@ -56,8 +56,8 @@ const systems = [
   {
     code: "01",
     title: "Froncort.AI",
-    kind: "Healthcare AI · current",
-    desc: "Joined as an intern, became Lead Engineer, now Product Manager, in about 12 months. I run 3 product teams across live, enterprise healthcare-AI products.",
+    kind: "Healthcare AI · 2025–2026",
+    desc: "Went from intern to Lead Engineer to Product Manager in about 12 months, across 3 enterprise healthcare-AI products.",
     metric: "Led 9 engineers and the technical direction",
     products: [
       {
@@ -70,7 +70,7 @@ const systems = [
         title: "AI NETRA",
         kind: "Public-health AI",
         desc: "Agentic and geospatial inference for TB outbreak prediction and supply allocation. Built with FIND, backed by Google.org; demoed at the India AI Impact Summit 2026.",
-        metric: "Cut TB screening effort by about 55%",
+        metric: "Led field validation: 55.2% less screening effort",
       },
     ],
   },
@@ -78,8 +78,8 @@ const systems = [
     code: "02",
     title: "Mirage",
     kind: "Adaptive web · co-founder",
-    desc: "Browser interfaces that reshape any website around the person using it, with agents at the core. 400-person waitlist, MVP in progress.",
-    metric: "Into the 16VC Summer Fellowship",
+    desc: "A Chrome extension that edits any website from plain English, with agents at the core. Live on the Chrome Web Store: about 100 users and a 400-person waitlist.",
+    metric: "16VC Summer Founder Fellowship",
   },
   {
     code: "03",
@@ -91,9 +91,10 @@ const systems = [
 ];
 
 const builds = [
-  { type: "Adaptive browser interfaces", title: "Mirage", kind: "reshape", res: "Working demos, 400 waitlist, 16VC Fellowship.", href: "https://trymirage.app" },
+  { type: "Adaptive browser interfaces", title: "Mirage", kind: "reshape", res: "Live on the Chrome Web Store: about 100 users, 400-person waitlist, 16VC Fellowship.", href: "https://trymirage.app" },
   { type: "Regulatory documentation", title: "RegDoc", kind: "doc", res: "Compliance-ready FDA / EU-MDR docs in minutes.", href: null },
   { type: "TB outbreak prediction", title: "AI NETRA", kind: "geo", res: "Demoed at the India AI Impact Summit 2026.", href: "https://www.linkedin.com/posts/froncortai_aiabrnetra-precisionpublichealth-tb-activity-7429159194530017280-nK0J" },
+  { type: "Civic AI · wet waste", title: "VACHAN", kind: "promise", res: "735 tonnes a day of written promises, found in 1,000+ government PDFs.", href: "https://github.com/SidTheKid-dotcom/wemakedevs-env-hacks-2026" },
   { type: "Enterprise knowledge RAG", title: "MercuryAI", kind: "graph", res: "1st place, IIT Bombay TechFest AI Quest.", href: "https://www.youtube.com/watch?v=l1pXpls1Vro" },
   { type: "City event detection", title: "Urban Eye AI", kind: "scan", res: "Real-time civic alerts on ESP32 edge devices.", href: "https://github.com/urban-eye-ai/Hub-Backend" },
   { type: "Campus social network", title: "Oasis", kind: "network", res: "1,200+ organic users, zero marketing.", href: "https://github.com/SidTheKid-dotcom/oasis-deploy-test" },
@@ -194,7 +195,7 @@ const SW = 178, SH = 75, ST = 14, SCX = 235, SCENTER = 320;
 const STACK = [
   { cy: 152, label: "learn by entering" },
   { cy: 264, label: "talk to the users" },
-  { cy: 376, label: "creative thinking > code" },
+  { cy: 376, label: "direction > code" },
   { cy: 488, label: "distribution is product" },
 ];
 const LABEL_Y = STACK.map((l) => l.cy);
@@ -250,7 +251,7 @@ function HeroMind() {
 
   return (
     <svg ref={ref} className={`engine-svg ${morphed ? "morphed" : ""}`} viewBox="0 0 640 600" role="img"
-      aria-label="A mind that resolves into a stacked system: learn by entering, creative thinking over code, talk to the users, distribution is product.">
+      aria-label="A mind that resolves into a stacked system: learn by entering, direction over code, talk to the users, distribution is product.">
       {/* intro: a clean brain (no labels). The morph opens it to reveal how it works. */}
       <g className="brain-stage">
         <g className="lucide-brain" transform="translate(161 192) scale(9.5)">
@@ -420,6 +421,25 @@ function BuildVisual({ kind }) {
             <rect className="bv-alert-pill" x="116" y="11" width="78" height="19" rx="9.5" />
             <text className="bv-alert-text" x="155" y="23.6">HIGH ALERT</text>
           </g>
+        </svg>
+      );
+    case "promise": // VACHAN — a builder's written promise, found on its exact page in a government PDF
+      return (
+        <svg className="bvis-svg bv-vachan" viewBox="0 0 200 100" aria-hidden="true">
+          {/* the minutes PDF, one line highlighted on its page */}
+          <rect className="bv-page" x="22" y="12" width="52" height="68" rx="3" />
+          {[24, 32, 40, 56, 64].map((y) => <line key={y} className="bv-soft" x1="29" y1={y} x2={y === 64 ? 56 : 67} y2={y} />)}
+          <rect className="bv-hl" x="27" y="45" width="42" height="6" rx="1.5" />
+          <line className="bv-hl-line" x1="29" y1="48" x2="67" y2="48" />
+          <text className="bv-tag" x="48" y="92">1,000+ PDFs</text>
+          {/* the quoted line becomes a checked promise card */}
+          <line className="bv-flowline" x1="78" y1="48" x2="118" y2="48" />
+          <circle className="bv-flow" r="2.6" style={{ offsetPath: "path('M78 48 L118 48')" }} />
+          <rect className="bv-stroke" x="122" y="22" width="60" height="52" rx="4" />
+          <text className="bv-kg" x="152" y="40">1,056 kg/day</text>
+          <line className="bv-soft" x1="130" y1="49" x2="174" y2="49" />
+          <path className="bv-check" pathLength="1" d="M139 60 l6 6 l13 -14" />
+          <text className="bv-tag accent" x="152" y="92">735 t/day</text>
         </svg>
       );
     case "graph": { // MercuryAI — one brain for your company, wired to every source
@@ -631,9 +651,9 @@ export default function Home() {
       <header className="hero wrap" id="top">
         <div className="hero-text">
           <p className="hero-eyebrow" data-enter style={{ "--d": "120ms" }}>
-            <span>Founder</span>
+            <span>Applied AI engineer</span>
             <span className="dot">·</span>
-            <span>Product engineer</span>
+            <span>Product builder</span>
             <span className="dot">·</span>
             <span>Systems thinker</span>
             <span className="live"><i />currently building</span>
@@ -649,15 +669,18 @@ export default function Home() {
             <b>what should have existed.</b>
           </p>
           <p className="hero-sub" data-enter style={{ "--d": "320ms" }}>
-            I&apos;m 21, leading engineering and product at a healthcare-AI startup,
-            co-founding Mirage, and studying Computer Engineering, all at once.
-            I learn unfamiliar domains from first principles and ship before the
+            I&apos;m 21. I build AI agents and the evals that prove they work.
+            Building Mirage and finishing Computer Engineering at PICT. I learn
+            unfamiliar domains from first principles and ship before the
             opportunity is obvious.
           </p>
 
           <div className="hero-cta" data-enter style={{ "--d": "400ms" }}>
             <a className="btn btn-primary" href="#work">
               See the systems <span className="arr">↓</span>
+            </a>
+            <a className="btn btn-ghost" href="/Siddhant_Vishnu_CV.pdf" target="_blank" rel="noreferrer">
+              Resume <span className="arr">↗</span>
             </a>
             <button className="btn btn-ghost" onClick={() => setCmdOpen(true)}>
               Socials <kbd style={{ marginLeft: 2 }}>/</kbd>
@@ -776,7 +799,7 @@ export default function Home() {
         <div data-reveal>
           <p className="eyebrow">Open the system</p>
           <h2>Let&apos;s build what<br />should exist.</h2>
-          <p className="lead">If you&apos;re building something that shouldn&apos;t have to wait, get in touch. Founder fellowships, collaborators, and the curious especially welcome.</p>
+          <p className="lead">Hiring for applied AI roles, building something ambitious, or just curious? Get in touch.</p>
           <div className="finale-cta">
             <a className="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>
               Get in touch <span className="arr">↗</span>

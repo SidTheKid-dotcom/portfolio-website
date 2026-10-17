@@ -688,6 +688,15 @@ p { margin: 0; color: var(--muted); }
 .bv-regdoc .bv-flow { fill: var(--blue); animation: bvFlow 2.4s linear infinite; }
 .bv-regdoc .bv-tag { fill: var(--muted); font-family: var(--font-mono), monospace; font-size: 8px; letter-spacing: 0.04em; text-anchor: middle; }
 .bv-regdoc .bv-tag.accent { fill: var(--teal); }
+.bv-vachan .bv-page { fill: rgba(255, 255, 255, 0.92); stroke: rgba(31, 95, 224, 0.45); stroke-width: 1.2; }
+.bv-vachan .bv-hl { fill: rgba(12, 122, 112, 0.18); animation: bvHighlight 3.6s ease-in-out infinite; }
+.bv-vachan .bv-hl-line { stroke: var(--teal); stroke-width: 1.6; stroke-linecap: round; }
+.bv-vachan .bv-flowline { stroke: rgba(12, 122, 112, 0.35); stroke-width: 1.2; stroke-dasharray: 3 4; }
+.bv-vachan .bv-flow { fill: var(--teal); animation: bvFlow 2.4s linear infinite; }
+.bv-vachan .bv-kg { fill: var(--blue); font-family: var(--font-mono), monospace; font-size: 8px; font-weight: 700; text-anchor: middle; }
+.bv-vachan .bv-tag { fill: var(--muted); font-family: var(--font-mono), monospace; font-size: 8px; letter-spacing: 0.04em; text-anchor: middle; }
+.bv-vachan .bv-tag.accent { fill: var(--teal); }
+@keyframes bvHighlight { 0%, 100% { opacity: 0.35; } 40%, 60% { opacity: 1; } }
 @keyframes bvSrc { 0%, 100% { transform: translateY(0); opacity: 0.85; } 50% { transform: translateY(-2px); opacity: 1; } }
 @keyframes bvFlow { 0% { offset-distance: 0%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 

@@ -1,6 +1,6 @@
 # portfolio-website
 
-Personal portfolio of Siddhant Vishnu — founder, product engineer, systems thinker.
+Personal site of Siddhant Vishnu, applied AI engineer: [siddhant-vishnu.vercel.app](https://siddhant-vishnu.vercel.app).
 
 Built with [Next.js](https://nextjs.org/). The hero is a hand-built SVG that draws a brain and morphs it into a stacked "operating system," and each project in *Things shipped* has its own custom animation.
 

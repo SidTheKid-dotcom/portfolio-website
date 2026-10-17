@@ -22,10 +22,26 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const description =
+  "Applied AI engineer. I build AI agents and the evals that prove they work. Building Mirage; previously Lead Engineer at Froncort.AI.";
+
 export const metadata = {
-  title: "Siddhant Vishnu · Founder & Product Engineer",
-  description:
-    "Siddhant Vishnu enters unfamiliar systems, finds the leverage, and builds the interface that should have existed. Founder of Mirage; previously led production healthcare AI.",
+  metadataBase: new URL("https://siddhant-vishnu.vercel.app"),
+  title: "Siddhant Vishnu · Applied AI Engineer",
+  description,
+  openGraph: {
+    title: "Siddhant Vishnu · Applied AI Engineer",
+    description,
+    url: "/",
+    siteName: "Siddhant Vishnu",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Siddhant Vishnu · Applied AI Engineer",
+    description,
+    creator: "@Siddhant_Vishnu",
+  },
 };
 
 export default function RootLayout({ children }) {
