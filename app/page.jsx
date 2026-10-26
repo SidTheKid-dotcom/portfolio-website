@@ -791,7 +791,7 @@ export default function Home() {
         <div className="head" data-reveal>
           <p className="eyebrow"><span className="idx">D /</span> Field notes</p>
           <h2>Thinking in public.</h2>
-          <p className="lead">I write to sharpen what I'm building. Distribution and product are the same job.</p>
+          <p className="lead">I write to sharpen what I&apos;m building. Distribution and product are the same job.</p>
         </div>
         <div className="notes">
           {notes.map((n, i) => (
