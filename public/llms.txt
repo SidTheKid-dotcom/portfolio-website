@@ -15,6 +15,7 @@
   - AI NETRA: TB outbreak prediction and diagnostic allocation, built with FIND and supported by Google.org; demoed at the India AI Impact Summit 2026. Built the analytics agent and led field validation with government TB officials (55.2% less screening effort, 54.8% lower cost).
 - Mirage (co-founder, May 2026 – present): a Chrome extension that edits any website from plain English, with a verified agent pipeline and a held-out release gate. Live on the Chrome Web Store with about 100 users and a 400-person waitlist.
 - VACHAN: finds the wet-waste promises Pune housing projects made to the government (735 tonnes a day across 1,214 projects) in 1,000+ public PDFs, shows the exact page, and drafts a letter asking for the plant to run. Built on AWS Bedrock, Step Functions and Textract.
+- hackathon-playbook (open source): a win-first process for judged build competitions, from idea lock to demo video and submission. https://github.com/SidTheKid-dotcom/hackathon-playbook
 - Other builds: MercuryAI (enterprise knowledge RAG), Urban Eye AI (city cameras that detect traffic, crowds and garbage, then alert by phone call), Oasis (campus social network, 1,200+ users), Steal or Share (real-time game-theory game for 200+ players), sid.breaks.prod (distribution experiment, 0 to 1,000 followers in 6 weeks).
 
 ## Links
