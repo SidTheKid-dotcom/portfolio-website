@@ -13,6 +13,8 @@ npm run dev
 
 Open http://localhost:3000.
 
+Run `npm run build` to check a production build before pushing.
+
 ## Stack
 
 - Next.js (App Router) + React
