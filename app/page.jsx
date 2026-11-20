@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 
 /* Swap this for the real address. Used by the "email" action. */
 const CONTACT_EMAIL = "siddhant.m.vishnu@gmail.com";
@@ -229,12 +229,32 @@ function layerDetail(i, cy) {
   return <><circle className="st-core" cx={c[0]} cy={c[1]} r="9" /><ellipse className="st-orbit" cx={c[0]} cy={c[1]} rx={SW * 0.42} ry={SH * 0.42} /></>;
 }
 
+const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onStoreChange) {
+  const mq = window.matchMedia(REDUCE_MOTION_QUERY);
+  mq.addEventListener("change", onStoreChange);
+  return () => mq.removeEventListener("change", onStoreChange);
+}
+function getReducedMotionSnapshot() {
+  return window.matchMedia(REDUCE_MOTION_QUERY).matches;
+}
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
+}
+
 function HeroMind() {
   const ref = useRef(null);
   const [morphed, setMorphed] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { setMorphed(true); return; }
+    if (reducedMotion) return;
     let t;
     const io = new IntersectionObserver(
       ([e]) => {
@@ -247,10 +267,10 @@ function HeroMind() {
     );
     if (ref.current) io.observe(ref.current);
     return () => { io.disconnect(); clearTimeout(t); };
-  }, []);
+  }, [reducedMotion]);
 
   return (
-    <svg ref={ref} className={`engine-svg ${morphed ? "morphed" : ""}`} viewBox="0 0 640 600" role="img"
+    <svg ref={ref} className={`engine-svg ${morphed || reducedMotion ? "morphed" : ""}`} viewBox="0 0 640 600" role="img"
       aria-label="A mind that resolves into a stacked system: learn by entering, direction over code, talk to the users, distribution is product.">
       {/* intro: a clean brain (no labels). The morph opens it to reveal how it works. */}
       <g className="brain-stage">
@@ -280,9 +300,7 @@ function HeroMind() {
   );
 }
 
-function CommandPalette({ open, onClose }) {
-  const [query, setQuery] = useState("");
-  const [active, setActive] = useState(0);
+function CommandPalette({ open, onClose, query, setQuery, active, setActive }) {
   const inputRef = useRef(null);
 
   const results = useMemo(() => {
@@ -295,13 +313,9 @@ function CommandPalette({ open, onClose }) {
 
   useEffect(() => {
     if (open) {
-      setQuery("");
-      setActive(0);
       requestAnimationFrame(() => inputRef.current?.focus());
     }
   }, [open]);
-
-  useEffect(() => setActive(0), [query]);
 
   const go = (cmd) => {
     if (!cmd) return;
@@ -330,7 +344,7 @@ function CommandPalette({ open, onClose }) {
           <input
             ref={inputRef}
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => { setQuery(e.target.value); setActive(0); }}
             onKeyDown={onKey}
             placeholder="Find a profile or the CV…"
             aria-label="Search"
@@ -626,8 +640,21 @@ function BuildRail({ builds }) {
 
 export default function Home() {
   const [cmdOpen, setCmdOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [active, setActive] = useState(0);
   useAtmosphere();
   useReveal();
+
+  const openPalette = () => {
+    setQuery("");
+    setActive(0);
+    setCmdOpen(true);
+  };
+  const closePalette = () => {
+    setQuery("");
+    setActive(0);
+    setCmdOpen(false);
+  };
 
   useEffect(() => {
     const onKey = (e) => {
@@ -635,9 +662,9 @@ export default function Home() {
         const tag = document.activeElement?.tagName;
         if (tag === "INPUT" || tag === "TEXTAREA") return;
         e.preventDefault();
-        setCmdOpen(true);
+        openPalette();
       }
-      if (e.key === "Escape") setCmdOpen(false);
+      if (e.key === "Escape") closePalette();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -658,7 +685,7 @@ export default function Home() {
           <a href="#writing">Writing</a>
           <a href="#contact">Contact</a>
         </div>
-        <button className="nav-cmd" onClick={() => setCmdOpen(true)}>
+        <button className="nav-cmd" onClick={openPalette}>
           Socials <kbd>/</kbd>
         </button>
       </nav>
@@ -698,7 +725,7 @@ export default function Home() {
             <a className="btn btn-ghost" href="/Siddhant_Vishnu_CV.pdf" target="_blank" rel="noreferrer">
               Resume <span className="arr">↗</span>
             </a>
-            <button className="btn btn-ghost" onClick={() => setCmdOpen(true)}>
+            <button className="btn btn-ghost" onClick={openPalette}>
               Socials <kbd style={{ marginLeft: 2 }}>/</kbd>
             </button>
           </div>
@@ -820,7 +847,7 @@ export default function Home() {
             <a className="btn btn-primary" href={`mailto:${CONTACT_EMAIL}`}>
               Get in touch <span className="arr">↗</span>
             </a>
-            <button className="btn btn-ghost" onClick={() => setCmdOpen(true)}>
+            <button className="btn btn-ghost" onClick={openPalette}>
               Socials <kbd style={{ marginLeft: 2 }}>/</kbd>
             </button>
           </div>
@@ -831,7 +858,14 @@ export default function Home() {
         </div>
       </section>
 
-      <CommandPalette open={cmdOpen} onClose={() => setCmdOpen(false)} />
+      <CommandPalette
+        open={cmdOpen}
+        onClose={closePalette}
+        query={query}
+        setQuery={setQuery}
+        active={active}
+        setActive={setActive}
+      />
     </main>
   );
 }
