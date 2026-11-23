@@ -13,7 +13,7 @@ npm run dev
 
 Open http://localhost:3000.
 
-Run `npm run build` to check a production build before pushing.
+Before pushing, run `npm run lint` and `npm run build`; both must pass.
 
 ## Stack
 
